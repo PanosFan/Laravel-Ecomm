@@ -23,11 +23,12 @@ class UserController extends Controller
             return redirect()->back()->with('error', 'Email already taken');
         }
 
-        $user = new User;
-        $user->name = $request->name;
-        $user->password = Hash::make($request->password);
-        $user->email = $request->email;
-        $user->save();
+        User::create([
+            'name' => $request->name,
+            'password' => Hash::make($request->password),
+            'email' => $request->email,
+        ]);
+
         return redirect()->back()->with('success', 'User registered, proceed to the login page');
     }
 
