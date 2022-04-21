@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -15,17 +16,17 @@ class UserController extends Controller
             'email' => 'required'
         ]);
 
-        if ($request->input('password') !== $request->input('passwordR')) {
+        if ($request->password !== $request->passwordR) {
             return redirect()->back()->with('error', 'Passwords need to match');
         }
-        if (User::where('email', $request->input('email'))->get()) {
+        if (User::where('email', $request->email)->first()) {
             return redirect()->back()->with('error', 'Email already taken');
         }
 
         $user = new User;
-        $user->name = $request->input('name');
-        $user->password = $request->input('password');
-        $user->email = $request->input('email');
+        $user->name = $request->name;
+        $user->password = Hash::make($request->password);
+        $user->email = $request->email;
         $user->save();
         return redirect()->back()->with('success', 'User registered, proceed to the login page');
     }
@@ -37,9 +38,10 @@ class UserController extends Controller
             'password' => 'required'
         ]);
 
-        $check = User::where('email', $request->input('email'))->where('password', $request->input('password'));
-        if ($check) {
-            session()->put('user_id', $request->input('email'));
+        $check = User::where('email', $request->email)->first();
+
+        if ($check && Hash::check($request->password, $check->password)) {
+            session()->put('user_id', $request->email);
             return redirect(route('get.home'));
         } else {
             return redirect()->back()->with('error', 'Credentials do not match');
