@@ -30,7 +30,7 @@
                     <div>
                         <button type="button" class="btn btn-primary">Sign up</button>
                         <p class="pt-3 lead text-center">Already a member?
-                            <a href="{{ route('login') }}" class="text-danger text-decoration-none">Login</a>
+                            <a href="{{ route('get.login') }}" class="text-danger text-decoration-none">Login</a>
                         </p>
                     </div>
                 </form>

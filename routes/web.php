@@ -15,6 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [PageController::class, 'home'])->name('home');
-Route::get('/login', [PageController::class, 'login'])->name('login');
-Route::get('/register', [PageController::class, 'register'])->name('register');
+Route::get('/', [PageController::class, 'home'])->name('get.home');
+Route::get('/login', [PageController::class, 'login'])->name('get.login');
+Route::get('/register', [PageController::class, 'register'])->name('get.register');
