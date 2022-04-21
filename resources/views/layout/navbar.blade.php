@@ -6,7 +6,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            @if (isset($_SESSION['user_id']))
+            @if (session()->has('user_id'))
                 <ul class="navbar-nav ms-auto ">
                     <li class="nav-item">
                         <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" aria-current="page"
@@ -17,6 +17,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ request()->is('contact') ? 'active' : '' }}" href="#">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-danger" href="{{ route('logout') }}">Logout</a>
                     </li>
                 </ul>
             @else

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -16,5 +17,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [PageController::class, 'home'])->name('get.home');
-Route::get('/login', [PageController::class, 'login'])->name('get.login');
-Route::get('/register', [PageController::class, 'register'])->name('get.register');
+Route::get('/login', [PageController::class, 'loginPage'])->name('get.login');
+Route::post('/login', [UserController::class, 'login'])->name('post.login');
+Route::get('/register', [PageController::class, 'registerPage'])->name('get.register');
+Route::post('/register', [UserController::class, 'signup'])->name('post.register');
+Route::get('/logout', [PageController::class, 'logout'])->name('logout');
