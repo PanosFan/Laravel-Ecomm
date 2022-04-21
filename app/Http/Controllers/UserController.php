@@ -39,6 +39,9 @@ class UserController extends Controller
         ]);
 
         $check = User::where('email', $request->email)->first();
+        if (!$check) {
+            return redirect()->back()->with('error', 'This email is not registered');
+        }
 
         if ($check && Hash::check($request->password, $check->password)) {
             session()->put('user_id', $request->email);

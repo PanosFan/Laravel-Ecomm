@@ -17,12 +17,20 @@ class PageController extends Controller
 
     public function loginPage()
     {
-        return view('login');
+        if (session()->has('user_id')) {
+            return redirect()->back();
+        } else {
+            return view('login');
+        }
     }
 
     public function registerPage()
     {
-        return view('register');
+        if (session()->has('user_id')) {
+            return redirect()->back();
+        } else {
+            return view('register');
+        }
     }
 
     public function logout()
