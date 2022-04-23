@@ -22,11 +22,11 @@
 
 <body>
     <header>
-        @include('layout.navbar')
+        {{ View::make('layout.navbar') }}
     </header>
     @yield('content')
     <footer>
-        @include('layout.footer')
+        {{ View::make('layout.footer') }}
     </footer>
 </body>
 
