@@ -13,10 +13,16 @@
                             href="{{ route('get.home') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ request()->is('about') ? 'active' : '' }}" href="#">About</a>
+                        <a class="nav-link {{ request()->is('contact') ? 'active' : '' }}"
+                            href="{{ route('get.contact') }}">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ request()->is('contact') ? 'active' : '' }}" href="#">Contact</a>
+                        <a class="nav-link {{ request()->is('authors') ? 'active' : '' }}"
+                            href="{{ route('get.authors') }}">Authors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->is('books') ? 'active' : '' }}"
+                            href="{{ route('get.books') }}">Books</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-danger" href="{{ route('logout') }}">Logout</a>

@@ -16,6 +16,9 @@ Route::middleware([isAuth::class])->group(function () {
 // is Guest so can't access main page sites, gets redirected on login page
 Route::middleware([isGuest::class])->group(function () {
     Route::get('/', [PageController::class, 'home'])->name('get.home');
+    Route::get('/contact', [PageController::class, 'contact'])->name('get.contact');
+    Route::get('/books', [PageController::class, 'books'])->name('get.books');
+    Route::get('/authors', [PageController::class, 'authors'])->name('get.authors');
     Route::get('/logout', [PageController::class, 'logout'])->name('logout');
 });
 

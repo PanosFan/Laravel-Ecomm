@@ -18,6 +18,21 @@ class PageController extends Controller
         return view('login');
     }
 
+    public function contact()
+    {
+        return view('contact');
+    }
+
+    public function books()
+    {
+        return view('books.index');
+    }
+
+    public function authors()
+    {
+        return view('authors.index');
+    }
+
     public function register()
     {
         return view('register');
