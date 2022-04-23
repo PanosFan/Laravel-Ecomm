@@ -32,7 +32,7 @@ class UserController extends Controller
         return redirect()->back()->with('success', 'User registered, proceed to the login page');
     }
 
-    public function login(Request $request)
+    public function signin(Request $request)
     {
         $this->validate($request, [
             'email' => 'required',
@@ -45,8 +45,13 @@ class UserController extends Controller
         }
 
         if ($check && Hash::check($request->password, $check->password)) {
-            session()->put('user_id', $request->email);
-            return redirect(route('get.home'));
+            session()->put('user_id', $check['email']);
+            session()->put('role', $check['role']);
+            if ($check['role'] === 'admin') {
+                return redirect(route('admin'));
+            } else {
+                return redirect(route('get.home'));
+            }
         } else {
             return redirect()->back()->with('error', 'Credentials do not match');
         }

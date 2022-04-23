@@ -2,40 +2,38 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
+
     public function home()
     {
-        if (session()->has('user_id')) {
-            return view('home');
-        } else {
-            return redirect('login');
-        }
+        $data = Book::all();
+        return view('home', compact('data'));
     }
 
-    public function loginPage()
+
+    public function login()
     {
-        if (session()->has('user_id')) {
-            return redirect()->back();
-        } else {
-            return view('login');
-        }
+        return view('login');
     }
 
-    public function registerPage()
+    public function register()
     {
-        if (session()->has('user_id')) {
-            return redirect()->back();
-        } else {
-            return view('register');
-        }
+        return view('register');
+    }
+
+    public function admin()
+    {
+        return view('admin');
     }
 
     public function logout()
     {
         session()->forget('user_id');
+        session()->forget('role');
         return redirect(route('get.login'));
     }
 }
