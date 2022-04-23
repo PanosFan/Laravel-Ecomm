@@ -23,7 +23,8 @@
                         <button type="submit" class="btn btn-primary">Sign in</button>
                         <p class="pt-3 lead text-center">
                             Not a member?
-                            <a href="{{ route('get.register') }}" class="text-danger text-decoration-none">Sign up </a>
+                            <a href="{{ route('get.register') }}" class="text-danger fst-italic text-decoration-none">Sign
+                                up </a>
                         </p>
                     </div>
                 </form>
