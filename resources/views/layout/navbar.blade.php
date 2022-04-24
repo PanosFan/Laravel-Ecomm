@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand " href="{{ route('get.home') }}">Navbar</a>
+        <a class="navbar-brand " href="{{ route('get.home') }}">Bookstore</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -25,6 +25,9 @@
                             href="{{ route('get.books') }}">Books</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link text-info" href="">Cart(0)</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link text-danger" href="{{ route('logout') }}">Logout</a>
                     </li>
                 </ul>
@@ -41,7 +44,6 @@
 
                 </ul>
             @endif
-
         </div>
     </div>
 </nav>

@@ -1,5 +1,7 @@
 @extends('layout.app')
 
 @section('content')
-    <h1>books page</h1>
+    <div class="container">
+        <h1>books page</h1>
+    </div>
 @endsection

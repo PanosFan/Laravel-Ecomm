@@ -1,5 +1,6 @@
 @extends('layout.app')
 @section('content')
+    {{-- ============Carousel============ --}}
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
@@ -13,22 +14,19 @@
             <div class="carousel-item active">
                 <img src="{{ URL::asset('images/1.jpg') }}" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5 class="red lead">First slide label</h5>
-                    <p class="red lead">Some representative placeholder content for the first slide.</p>
+                    <p class="text-danger lead">Some representative placeholder content for the first slide.</p>
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="{{ URL::asset('images/2.jpg') }}" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5 class="red lead">Second slide label</h5>
-                    <p class="red lead">Some representative placeholder content for the second slide.</p>
+                    <p class="text-danger lead">Some representative placeholder content for the second slide.</p>
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="{{ URL::asset('images/3.jpg') }}" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5 class="red lead">Third slide label</h5>
-                    <p class="red lead">Some representative placeholder content for the third slide.</p>
+                    <p class="text-danger lead">Some representative placeholder content for the third slide.</p>
                 </div>
             </div>
         </div>
@@ -40,5 +38,10 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
+    </div>
+    {{-- ============Carousel============ --}}
+
+    <div class="container">
+        <h1>Content here</h1>
     </div>
 @endsection
