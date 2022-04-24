@@ -42,6 +42,6 @@
     {{-- ============Carousel============ --}}
 
     <div class="container">
-        <h1>Content here</h1>
+        <h1>Trending books</h1>
     </div>
 @endsection

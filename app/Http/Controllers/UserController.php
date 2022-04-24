@@ -8,6 +8,27 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+    public function login()
+    {
+        return view('login');
+    }
+    public function register()
+    {
+        return view('register');
+    }
+
+    public function admin()
+    {
+        return view('admin');
+    }
+
+    public function logout()
+    {
+        session()->forget('user_id');
+        session()->forget('role');
+        return redirect(route('get.login'));
+    }
+
     public function signup(Request $request)
     {
         $this->validate($request, [
@@ -20,7 +41,7 @@ class UserController extends Controller
             return redirect()->back()->with('error', 'Passwords need to match');
         }
         if (User::where('email', $request->email)->first()) {
-            return redirect()->back()->with('error', 'Email already taken');
+            return redirect()->back()->with('error', 'Email already registered');
         }
 
         User::create([
