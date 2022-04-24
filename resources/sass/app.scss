@@ -3,6 +3,17 @@
     box-sizing: border-box;
 }
 
-body {
-    background-color: teal;
+#carouselExampleCaptions {
+    img {
+        max-height: 35em;
+        max-width: 90%;
+        margin-inline: auto;
+    }
+    .carousel-item {
+        background-color: black;
+    }
+}
+
+.red {
+    color: red;
 }
