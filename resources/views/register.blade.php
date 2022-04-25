@@ -24,22 +24,22 @@
                     @csrf
                     <div class="mb-3 text-black">
                         <label for="email" class="form-label">Email address</label>
-                        <input name="email" type="email" class="form-control" aria-describedby="emailHelp">
+                        <input name="email" type="email" class="form-control" aria-describedby="emailHelp" required>
                         <div class="form-text text-black-50">We'll never share your email with anyone else.
                         </div>
                     </div>
 
                     <div class="mb-3 text-black">
                         <label for="name" class="form-label">Name</label>
-                        <input name="name" type="text" class="form-control">
+                        <input name="name" type="text" class="form-control" required>
                     </div>
                     <div class="mb-3 text-black">
                         <label for="password" class="form-label">Password</label>
-                        <input name="password" type="password" class="form-control">
+                        <input name="password" type="password" class="form-control" required>
                     </div>
                     <div class="mb-3 text-black">
                         <label for="passwordR" class="form-label">Repeat Password</label>
-                        <input name="passwordR" type="password" class="form-control">
+                        <input name="passwordR" type="password" class="form-control" required>
                     </div>
                     <div class="mb-3 text-black form-check">
                         <input name="checkBox" type="checkbox" class="form-check-input">

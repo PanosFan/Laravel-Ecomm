@@ -22,10 +22,6 @@
                             href="{{ route('get.contact') }}">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ request()->is('authors') ? 'active' : '' }}"
-                            href="{{ route('get.authors') }}">Authors</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link {{ request()->is('books') ? 'active' : '' }}"
                             href="{{ route('get.books') }}">Books</a>
                     </li>

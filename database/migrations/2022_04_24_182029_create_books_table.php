@@ -15,12 +15,11 @@ return new class extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('author_id');
+            $table->unsignedInteger('author');
             $table->string('name');
             $table->string('image');
             $table->unsignedInteger('price');
             $table->timestamps();
-            $table->foreign('author_id')->references('id')->on('authors')->onDelete('cascade');
         });
     }
 

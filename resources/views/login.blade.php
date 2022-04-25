@@ -12,11 +12,11 @@
                     @csrf
                     <div class="mb-3 text-black">
                         <label for="email" class="form-label">Email address</label>
-                        <input name="email" type="email" class="form-control" aria-describedby="emailHelp">
+                        <input name="email" type="email" class="form-control" required>
                     </div>
                     <div class="mb-3 text-black">
                         <label for="password" class="form-label">Password</label>
-                        <input name="password" type="password" class="form-control">
+                        <input name="password" type="password" class="form-control" required>
                     </div>
 
                     <div>
