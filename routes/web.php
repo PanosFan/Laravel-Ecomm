@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -30,5 +31,7 @@ Route::post('/login', [UserController::class, 'signin'])->name('post.login');
 Route::post('/register', [UserController::class, 'signup'])->name('post.register');
 
 
-
-Route::get('/admin', [UserController::class, 'admin'])->middleware(isAdmin::class)->name('admin');
+Route::middleware([isAdmin::class])->group(function () {
+    Route::get('/admin', [AdminController::class, 'admin'])->name('get.admin');
+    Route::get('/admin/create', [AdminController::class, 'createListing'])->name('get.admin.create');
+});

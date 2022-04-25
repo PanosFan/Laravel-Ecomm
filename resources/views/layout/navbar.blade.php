@@ -8,6 +8,11 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             @if (session()->has('user_id'))
                 <ul class="navbar-nav ms-auto ">
+                    @if (session()->get('role') === 'admin')
+                        <li class="nav-item">
+                            <a class="nav-link text-primary" href="{{ route('get.admin') }}">Admin</a>
+                        </li>
+                    @endif
                     <li class="nav-item">
                         <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" aria-current="page"
                             href="{{ route('get.home') }}">Home</a>
@@ -41,7 +46,6 @@
                         <a class="nav-link {{ request()->is('register') ? 'active' : '' }}"
                             href="{{ route('get.register') }}">Register</a>
                     </li>
-
                 </ul>
             @endif
         </div>

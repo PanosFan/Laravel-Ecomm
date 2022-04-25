@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+    // ====================== GET FUNCTIONS======================
     public function login()
     {
         return view('login');
@@ -16,19 +17,15 @@ class UserController extends Controller
     {
         return view('register');
     }
-
-    public function admin()
-    {
-        return view('admin');
-    }
-
     public function logout()
     {
         session()->forget('user_id');
         session()->forget('role');
         return redirect(route('get.login'));
     }
+    // ====================== GET FUNCTIONS======================
 
+    // ====================== POST FUNCTIONS======================
     public function signup(Request $request)
     {
         $this->validate($request, [
@@ -52,7 +49,6 @@ class UserController extends Controller
 
         return redirect()->back()->with('success', 'User registered, proceed to the login page');
     }
-
     public function signin(Request $request)
     {
         $this->validate($request, [
@@ -69,7 +65,7 @@ class UserController extends Controller
             session()->put('user_id', $check['email']);
             session()->put('role', $check['role']);
             if ($check['role'] === 'admin') {
-                return redirect(route('admin'));
+                return redirect(route('get.admin'));
             } else {
                 return redirect(route('get.home'));
             }
@@ -77,4 +73,5 @@ class UserController extends Controller
             return redirect()->back()->with('error', 'Credentials do not match');
         }
     }
+    // ====================== POST FUNCTIONS======================
 }
