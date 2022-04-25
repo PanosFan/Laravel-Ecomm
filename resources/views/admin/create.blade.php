@@ -1,3 +1,16 @@
+<style>
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    input[type="number"] {
+        -moz-appearance: textfield;
+    }
+
+</style>
+
 @extends('layout.app')
 @section('content')
     <div class="container">
@@ -8,19 +21,27 @@
                         {{ session()->get('error') }}
                     </div>
                 @endif
-                <form method="POST" action="" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('post.admin.create') }}" enctype='multipart/form-data'>
                     @csrf
                     <div class="mb-3 text-black">
-                        <label for="name" class="form-label">Author name</label>
-                        <input name="name" type="text" class="form-control" required>
+                        <label for="title" class="form-label">Book Title</label>
+                        <input name="title" type="text" class="form-control" required>
                     </div>
                     <div class="mb-3 text-black">
-                        <label for="bio" class="form-label">Bio</label>
-                        <input name="bio" type="text" class="form-control" required>
+                        <label for="author" class="form-label">Author name</label>
+                        <input name="author" type="text" class="form-control" required>
+                    </div>
+                    <div class="mb-3 text-black">
+                        <label for="description" class="form-label">Description</label>
+                        <input name="description" type="text" class="form-control" required>
                     </div>
                     <div class="mb-3 text-black">
                         <label for="image" class="form-label">Image</label>
                         <input name="image" type="file" class="form-control" required>
+                    </div>
+                    <div class="mb-3 text-black">
+                        <label for="price" class="form-label">Price</label>
+                        <input name="price" type="number" class="form-control" required>
                     </div>
 
                     <div>

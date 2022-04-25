@@ -12,20 +12,20 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="{{ URL::asset('images/1.jpg') }}" class="d-block w-100" alt="...">
+                <img src="{{ URL::asset('images/1.jpg') }}" class="d-block w-100">
                 <div class="carousel-caption d-none d-md-block">
                     <p class="text-danger lead">Some representative placeholder content for the first slide.</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="{{ URL::asset('images/2.jpg') }}" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
+                <img src="{{ URL::asset('images/2.jpg') }}" class="d-block w-100">
+                <div class=" carousel-caption d-none d-md-block">
                     <p class="text-danger lead">Some representative placeholder content for the second slide.</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="{{ URL::asset('images/3.jpg') }}" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
+                <img src="{{ URL::asset('images/3.jpg') }}" class="d-block w-100">
+                <div class=" carousel-caption d-none d-md-block">
                     <p class="text-danger lead">Some representative placeholder content for the third slide.</p>
                 </div>
             </div>
@@ -42,6 +42,17 @@
     {{-- ============Carousel============ --}}
 
     <div class="container">
-        <h1>Trending books</h1>
+        <h3>Trending books</h3>
+        @forelse ($data as $item)
+            <div>
+                <img src="{{ asset('images/' . $item->image) }}" alt="">
+                <button class="btn btn-sm btn-info">Update</button>
+                <button class="btn btn-sm btn-danger">Delete</button>
+            </div>
+        @empty
+            <p>
+                No items yet
+            </p>
+        @endforelse
     </div>
 @endsection

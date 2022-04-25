@@ -9,8 +9,8 @@ body {
 }
 
 #carouselExampleCaptions img {
-  max-height: 35em;
-  max-width: 90%;
+  max-height: 20em;
+  max-width: 80%;
   margin-inline: auto;
 }
 #carouselExampleCaptions .carousel-item {
