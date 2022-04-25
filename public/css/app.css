@@ -8,6 +8,10 @@ body {
   background-color: #dddddd;
 }
 
+.flexe {
+  display: flex;
+}
+
 #carouselExampleCaptions img {
   max-height: 20em;
   max-width: 80%;

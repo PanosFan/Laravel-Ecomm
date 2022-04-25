@@ -1,3 +1,10 @@
+<style>
+    img {
+        width: 40%
+    }
+
+</style>
+
 @extends('layout.app')
 @section('content')
     {{-- ============Carousel============ --}}
@@ -43,16 +50,21 @@
 
     <div class="container">
         <h3>Trending books</h3>
-        @forelse ($data as $item)
-            <div>
-                <img src="{{ asset('images/' . $item->image) }}" alt="">
-                <button class="btn btn-sm btn-info">Update</button>
-                <button class="btn btn-sm btn-danger">Delete</button>
-            </div>
-        @empty
-            <p>
-                No items yet
-            </p>
-        @endforelse
+        <div class="row mt-4">
+            @forelse ($data as $item)
+                <div class="col-6 text-center p-4">
+                    <img src="{{ asset('images/' . $item->image) }}" alt="">
+                    <div>Title: {{ $item['title'] }}</div>
+                    <div>Description: {{ $item['description'] }}</div>
+                    <div>Author: {{ $item['author'] }}</div>
+                    <div>Price: {{ $item['price'] }}&euro;</div>
+                    <a href="#" class="btn btn-info">Buy</a>
+                </div>
+            @empty
+                <p>
+                    No items yet
+                </p>
+            @endforelse
+        </div>
     </div>
 @endsection

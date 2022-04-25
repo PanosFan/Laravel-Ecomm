@@ -7,6 +7,16 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
+
+    public function deleteListing($id)
+    {
+        $book = Book::find($id);
+        $path = $book['image'];
+        $book->delete();
+        unlink("images/" . $path);
+        return redirect(route('get.admin'));
+    }
+
     public function admin()
     {
         $data = Book::all();
@@ -29,8 +39,6 @@ class AdminController extends Controller
         ]);
 
         $imageName = time() . '-' . $request->title . '.' . $request->image->extension();
-        $request->image->move(public_path('images'), $imageName);
-
         Book::create([
             'image' => $imageName,
             'title' => $request->title,
@@ -38,6 +46,7 @@ class AdminController extends Controller
             'description' => $request->description,
             'price' => $request->price,
         ]);
+        $request->image->move(public_path('images'), $imageName);
         return redirect(route('get.admin'));
     }
 }

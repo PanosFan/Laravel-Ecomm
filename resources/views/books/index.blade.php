@@ -1,7 +1,31 @@
-@extends('layout.app')
+<style>
+    img {
+        width: 40%
+    }
 
+</style>
+
+@extends('layout.app')
 @section('content')
     <div class="container">
-        <h1>books page</h1>
+        <div class="container">
+            <h3>Books</h3>
+            <div class="row mt-4">
+                @forelse ($data as $item)
+                    <div class="col-6 text-center p-4">
+                        <img src="{{ asset('images/' . $item->image) }}" alt="">
+                        <div>Title: {{ $item['title'] }}</div>
+                        <div>Description: {{ $item['description'] }}</div>
+                        <div>Author: {{ $item['author'] }}</div>
+                        <div>Price: {{ $item['price'] }}&euro;</div>
+                        <a href="#" class="btn btn-info">Buy</a>
+                    </div>
+                @empty
+                    <p>
+                        No items yet
+                    </p>
+                @endforelse
+            </div>
+        </div>
     </div>
 @endsection

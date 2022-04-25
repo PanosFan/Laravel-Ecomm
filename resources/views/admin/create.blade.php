@@ -36,13 +36,14 @@
                         <input name="description" type="text" class="form-control" required>
                     </div>
                     <div class="mb-3 text-black">
-                        <label for="image" class="form-label">Image</label>
-                        <input name="image" type="file" class="form-control" required>
-                    </div>
-                    <div class="mb-3 text-black">
                         <label for="price" class="form-label">Price</label>
                         <input name="price" type="number" class="form-control" required>
                     </div>
+                    <div class="mb-3 text-black">
+                        <label for="image" class="form-label">Image</label>
+                        <input name="image" type="file" class="form-control" required>
+                    </div>
+
 
                     <div>
                         <button type="submit" class="btn btn-primary">Submit</button>
