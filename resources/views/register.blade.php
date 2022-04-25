@@ -22,29 +22,30 @@
                 @endif
                 <form method="POST" action="{{ route('post.register') }}">
                     @csrf
-                    <div class="mb-3 text-black">
-                        <label for="email" class="form-label">Email address</label>
-                        <input name="email" type="email" class="form-control" aria-describedby="emailHelp" required>
-                        <div class="form-text text-black-50">We'll never share your email with anyone else.
-                        </div>
+
+                    <div class="form-floating mb-3">
+                        <input name="email" type="email" class="form-control" aria-describedby="emailHelp"
+                            id="floatingInput" placeholder="name@example.com">
+                        <label for="floatingInput">Email address</label>
+                        <div class="form-text ms-1">We'll never share your email with anyone else.</div>
                     </div>
 
-                    <div class="mb-3 text-black">
-                        <label for="name" class="form-label">Name</label>
-                        <input name="name" type="text" class="form-control" required>
+                    <div class="form-floating mb-3">
+                        <input name="name" type="text" class="form-control" id="floatingInput1" placeholder="name">
+                        <label for="floatingInput1">Name</label>
                     </div>
-                    <div class="mb-3 text-black">
-                        <label for="password" class="form-label">Password</label>
-                        <input name="password" type="password" class="form-control" required>
+
+                    <div class="form-floating mb-3">
+                        <input name="password" type="password" class="form-control" id="floatingPassword"
+                            placeholder="Password">
+                        <label for="floatingPassword">Password</label>
                     </div>
-                    <div class="mb-3 text-black">
-                        <label for="passwordR" class="form-label">Repeat Password</label>
-                        <input name="passwordR" type="password" class="form-control" required>
+                    <div class="form-floating mb-3">
+                        <input name="passwordR" type="password" class="form-control" id="floatingPassword1"
+                            placeholder="Repeat Password">
+                        <label for="floatingPassword1">Repeat Password</label>
                     </div>
-                    <div class="mb-3 text-black form-check">
-                        <input name="checkBox" type="checkbox" class="form-check-input">
-                        <label class="form-check-label" for="checkBox">Remember me</label>
-                    </div>
+
                     <div>
                         <button type="submit" class="btn btn-primary">Sign up</button>
                         <p class="pt-3 lead text-center">Already a member?

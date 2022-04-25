@@ -10,13 +10,15 @@
                 @endif
                 <form method="POST" action="{{ route('post.login') }}">
                     @csrf
-                    <div class="mb-3 text-black">
-                        <label for="email" class="form-label">Email address</label>
-                        <input name="email" type="email" class="form-control" required>
+                    <div class="form-floating mb-3">
+                        <input name="email" type="email" class="form-control" id="floatingInput"
+                            placeholder="name@example.com">
+                        <label for="floatingInput">Email address</label>
                     </div>
-                    <div class="mb-3 text-black">
-                        <label for="password" class="form-label">Password</label>
-                        <input name="password" type="password" class="form-control" required>
+                    <div class="form-floating mb-3">
+                        <input name="password" type="password" class="form-control" id="floatingPassword"
+                            placeholder="Password">
+                        <label for="floatingPassword">Password</label>
                     </div>
 
                     <div>

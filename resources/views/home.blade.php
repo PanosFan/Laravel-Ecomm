@@ -1,6 +1,6 @@
 <style>
     img {
-        width: 40%
+        width: 20%
     }
 
 </style>
@@ -52,14 +52,16 @@
         <h3>Trending books</h3>
         <div class="row mt-4">
             @forelse ($data as $item)
-                <div class="col-6 text-center p-4">
-                    <img src="{{ asset('images/' . $item->image) }}" alt="">
-                    <div>Title: {{ $item['title'] }}</div>
-                    <div>Description: {{ $item['description'] }}</div>
-                    <div>Author: {{ $item['author'] }}</div>
-                    <div>Price: {{ $item['price'] }}&euro;</div>
-                    <a href="#" class="btn btn-info">Buy</a>
-                </div>
+                @if ($item['isTrending'] == 1)
+                    <div class="col-3 text-center p-4">
+                        <img src="{{ asset('images/' . $item->image) }}" alt="">
+                        <div>Title: {{ $item['title'] }}</div>
+                        <div>Description: {{ $item['description'] }}</div>
+                        <div>Author: {{ $item['author'] }}</div>
+                        <div>Price: {{ $item['price'] }}&euro;</div>
+                        <a href="#" class="btn btn-primary">Buy</a>
+                    </div>
+                @endif
             @empty
                 <p>
                     No items yet

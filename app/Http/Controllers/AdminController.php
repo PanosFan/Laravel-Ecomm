@@ -39,12 +39,18 @@ class AdminController extends Controller
         ]);
 
         $imageName = time() . '-' . $request->title . '.' . $request->image->extension();
+        if ($request->has('isTrending')) {
+            $trending = true;
+        } else {
+            $trending = false;
+        }
         Book::create([
             'image' => $imageName,
             'title' => $request->title,
             'author' => $request->author,
             'description' => $request->description,
             'price' => $request->price,
+            'isTrending' => $trending,
         ]);
         $request->image->move(public_path('images'), $imageName);
         return redirect(route('get.admin'));

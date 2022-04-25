@@ -18,7 +18,7 @@
                         <div>Description: {{ $item['description'] }}</div>
                         <div>Author: {{ $item['author'] }}</div>
                         <div>Price: {{ $item['price'] }}&euro;</div>
-                        <a href="#" class="btn btn-info">Buy</a>
+                        <a href="#" class="btn btn-primary">Buy</a>
                     </div>
                 @empty
                     <p>

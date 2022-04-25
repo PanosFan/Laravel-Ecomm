@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('description');
             $table->string('image');
             $table->unsignedInteger('price');
+            $table->boolean('isTrending')->default(false);
             $table->timestamps();
         });
     }

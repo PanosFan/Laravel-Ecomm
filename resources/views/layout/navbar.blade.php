@@ -18,12 +18,12 @@
                             href="{{ route('get.home') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ request()->is('contact') ? 'active' : '' }}"
-                            href="{{ route('get.contact') }}">Contact</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link {{ request()->is('books') ? 'active' : '' }}"
                             href="{{ route('get.books') }}">Books</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->is('contact') ? 'active' : '' }}"
+                            href="{{ route('get.contact') }}">Contact</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-info" href="">Cart(0)</a>

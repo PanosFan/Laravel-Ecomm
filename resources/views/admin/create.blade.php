@@ -43,7 +43,12 @@
                         <label for="image" class="form-label">Image</label>
                         <input name="image" type="file" class="form-control" required>
                     </div>
-
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" name="isTrending">
+                        <label class="form-check-label" for="isTrending">
+                            Trending?
+                        </label>
+                    </div>
 
                     <div>
                         <button type="submit" class="btn btn-primary">Submit</button>
