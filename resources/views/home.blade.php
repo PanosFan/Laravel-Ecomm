@@ -56,7 +56,6 @@
                     <div class="col-3 text-center p-4">
                         <img src="{{ asset('images/' . $item->image) }}" alt="">
                         <div>Title: {{ $item['title'] }}</div>
-                        <div>Description: {{ $item['description'] }}</div>
                         <div>Author: {{ $item['author'] }}</div>
                         <div>Price: {{ $item['price'] }}&euro;</div>
                         <a href="#" class="btn btn-primary">Buy</a>
