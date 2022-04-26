@@ -22,4 +22,9 @@ class PageController extends Controller
         $data = Book::all();
         return view('books.index', compact('data'));
     }
+    public function details($id)
+    {
+        $data = Book::find($id);
+        return view('books.details', compact('data'));
+    }
 }

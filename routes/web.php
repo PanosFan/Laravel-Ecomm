@@ -22,6 +22,7 @@ Route::middleware([isGuest::class])->group(function () {
     Route::get('/contact', [PageController::class, 'contact'])->name('get.contact');
     Route::get('/books', [PageController::class, 'books'])->name('get.books');
     Route::get('/logout', [UserController::class, 'logout'])->name('logout');
+    Route::get('/books/{id}/details', [PageController::class, 'details'])->name('get.book.details');
 });
 
 

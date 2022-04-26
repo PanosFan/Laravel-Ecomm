@@ -13,12 +13,12 @@
             @forelse ($data as $item)
                 <div class="col-6 text-center p-4">
                     <img src="{{ asset('images/' . $item->image) }}" alt="">
-                    <div>Title: {{ $item['title'] }}</div>
-                    <div>Author: {{ $item['author'] }}</div>
-                    <div>Price: {{ $item['price'] }}&euro;</div>
-                    <div>Description: {{ $item['description'] }}</div>
+                    <div>Title: {{ $item->title }}</div>
+                    <div>Author: {{ $item->author }}</div>
+                    <div>Price: {{ $item->price }}&euro;</div>
+                    <div>Description: {{ $item->description }}</div>
                     <a href="#" class="btn btn-sm btn-info">Update</a>
-                    <a href="{{ route('delete.listing', $item['id']) }}" class="btn btn-sm btn-danger">Delete</a>
+                    <a href="{{ route('delete.listing', $item->id) }}" class="btn btn-sm btn-danger">Delete</a>
                 </div>
             @empty
                 <p>
