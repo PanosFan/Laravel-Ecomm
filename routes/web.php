@@ -34,6 +34,8 @@ Route::post('/register', [UserController::class, 'signup'])->name('post.register
 Route::middleware([isAdmin::class])->group(function () {
     Route::get('/admin', [AdminController::class, 'admin'])->name('get.admin');
     Route::get('/admin/create', [AdminController::class, 'createListing'])->name('get.admin.create');
-    Route::post('/admin/create', [AdminController::class, 'postListing'])->name('post.admin.create');
+    Route::post('/admin/create', [AdminController::class, 'storeListing'])->name('post.admin.create');
     Route::get('/admin/{id}/delete', [AdminController::class, 'deleteListing'])->name('delete.listing');
+    Route::get('/admin/{id}/edit', [AdminController::class, 'editListing'])->name('edit.listing');
+    Route::put('/admin/{id}/update', [AdminController::class, 'updateListing'])->name('update.listing');
 });

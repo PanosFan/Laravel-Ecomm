@@ -15,7 +15,7 @@
                 <p>Title: {{ $data->title }}</p>
                 <p>Description: {{ $data->description }}</p>
                 <p>Price: {{ $data->price }}</p>
-                <a href="" class="btn btn-primary">Buy</a>
+                <a href="" class="btn btn-primary">Add to cart</a>
             </div>
         </div>
     </div>

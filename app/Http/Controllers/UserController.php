@@ -62,8 +62,8 @@ class UserController extends Controller
         }
 
         if ($check && Hash::check($request->password, $check->password)) {
-            session()->put('user_id', $check['email']);
-            session()->put('role', $check['role']);
+            session()->put('user_id', $check->email);
+            session()->put('role', $check->role);
             if ($check['role'] === 'admin') {
                 return redirect(route('get.admin'));
             } else {
