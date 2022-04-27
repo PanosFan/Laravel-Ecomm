@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Middleware\isAuth;
 use \App\Http\Middleware\isAdmin;
@@ -19,7 +20,8 @@ Route::middleware([isAuth::class])->group(function () {
 // is Guest so can't access main page sites, gets redirected on login page
 Route::middleware([isGuest::class])->group(function () {
     Route::get('/', [PageController::class, 'home'])->name('get.home');
-    Route::get('/contact', [PageController::class, 'contact'])->name('get.contact');
+    Route::get('/contact', [ContactController::class, 'contact'])->name('get.contact');
+    Route::post('/contact', [ContactController::class, 'storeComments'])->name('post.contact');
     Route::get('/books', [PageController::class, 'books'])->name('get.books');
     Route::get('/logout', [UserController::class, 'logout'])->name('logout');
     Route::get('/books/{id}/details', [PageController::class, 'details'])->name('get.book.details');
@@ -34,6 +36,8 @@ Route::post('/register', [UserController::class, 'signup'])->name('post.register
 Route::middleware([isAdmin::class])->group(function () {
     Route::get('/admin', [AdminController::class, 'admin'])->name('get.admin');
     Route::get('/admin/create', [AdminController::class, 'createListing'])->name('get.admin.create');
+    Route::get('/admin/comments', [AdminController::class, 'comments'])->name('get.admin.comments');
+    Route::get('/admin/comments/{id}/delete', [AdminController::class, 'deleteComment'])->name('delete.admin.comment');
     Route::post('/admin/create', [AdminController::class, 'storeListing'])->name('post.admin.create');
     Route::get('/admin/{id}/delete', [AdminController::class, 'deleteListing'])->name('delete.listing');
     Route::get('/admin/{id}/edit', [AdminController::class, 'editListing'])->name('edit.listing');

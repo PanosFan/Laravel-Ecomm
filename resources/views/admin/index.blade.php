@@ -8,7 +8,8 @@
 @section('content')
     <div class="container">
         <h1 class="text-danger">Admin page</h1>
-        <a class="lead" href="{{ route('get.admin.create') }}">Create listing</a>
+        <a class="btn btn-primary" href="{{ route('get.admin.create') }}">Create listing</a>
+        <a class="btn btn-info" href="{{ route('get.admin.comments') }}">Check submitted comments</a>
         <div class="row mt-4">
             @forelse ($data as $item)
                 <div class="col-6 text-center p-4">

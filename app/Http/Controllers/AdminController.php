@@ -3,10 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Contact;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
+    public function deleteComment($id)
+    {
+        $comment = Contact::find($id);
+        $comment->delete();
+        return redirect()->back();
+    }
+    public function comments()
+    {
+        $data = Contact::all();
+        return view('admin.comments', compact('data'));
+    }
     public function editListing($id)
     {
         $book = Book::find($id);

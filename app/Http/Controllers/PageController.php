@@ -13,10 +13,7 @@ class PageController extends Controller
         $data = Book::all();
         return view('home', compact('data'));
     }
-    public function contact()
-    {
-        return view('contact');
-    }
+
     public function books()
     {
         $data = Book::all();
