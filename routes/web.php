@@ -37,11 +37,7 @@ Route::post('/login', [UserController::class, 'signin'])->name('post.login');
 Route::post('/register', [UserController::class, 'signup'])->name('post.register');
 
 
-// Route::middleware([isAdmin::class])->group(function () {
-//     Route::prefix('/admin')->group(function () {
-//     });
-// });
-
+// admin only
 Route::group(['prefix' => 'admin', 'middleware' => isAdmin::class], function () {
     Route::get('/', [AdminController::class, 'admin'])->name('get.admin');
     Route::view('/create', 'admin.create')->name('get.admin.create');
