@@ -8,24 +8,14 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    // ====================== GET FUNCTIONS======================
-    public function login()
-    {
-        return view('login');
-    }
-    public function register()
-    {
-        return view('register');
-    }
     public function logout()
     {
         session()->forget('user_id');
         session()->forget('role');
         return redirect(route('get.login'));
     }
-    // ====================== GET FUNCTIONS======================
 
-    // ====================== POST FUNCTIONS======================
+
     public function signup(Request $request)
     {
         $this->validate($request, [
@@ -73,5 +63,4 @@ class UserController extends Controller
             return redirect()->back()->with('error', 'Credentials do not match');
         }
     }
-    // ====================== POST FUNCTIONS======================
 }

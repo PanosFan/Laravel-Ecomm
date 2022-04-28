@@ -83,10 +83,6 @@ class AdminController extends Controller
         return view('admin.index', compact('data'));
     }
 
-    public function createListing()
-    {
-        return view('admin.create');
-    }
 
     public function storeListing(Request $request)
     {

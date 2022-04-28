@@ -13,14 +13,14 @@ use App\Http\Middleware\isGuest;
 
 //is Auth so can't go back to the login page, gets redirected on home page
 Route::middleware([isAuth::class])->group(function () {
-    Route::get('/login', [UserController::class, 'login'])->name('get.login');
-    Route::get('/register', [UserController::class, 'register'])->name('get.register');
+    Route::view('/login', 'login')->name('get.login');
+    Route::view('/register', 'register')->name('get.register');
 });
 
 // is Guest so can't access main page sites, gets redirected on login page
 Route::middleware([isGuest::class])->group(function () {
     Route::get('/', [PageController::class, 'home'])->name('get.home');
-    Route::get('/contact', [ContactController::class, 'contact'])->name('get.contact');
+    Route::view('/contact', 'contact')->name('get.contact');
     Route::post('/contact', [ContactController::class, 'storeComments'])->name('post.contact');
     Route::get('/books', [PageController::class, 'books'])->name('get.books');
     Route::get('/logout', [UserController::class, 'logout'])->name('logout');
@@ -35,7 +35,7 @@ Route::post('/register', [UserController::class, 'signup'])->name('post.register
 
 Route::middleware([isAdmin::class])->group(function () {
     Route::get('/admin', [AdminController::class, 'admin'])->name('get.admin');
-    Route::get('/admin/create', [AdminController::class, 'createListing'])->name('get.admin.create');
+    Route::view('/admin/create', 'admin.create')->name('get.admin.create');
     Route::get('/admin/comments', [AdminController::class, 'comments'])->name('get.admin.comments');
     Route::get('/admin/comments/{id}/delete', [AdminController::class, 'deleteComment'])->name('delete.admin.comment');
     Route::post('/admin/create', [AdminController::class, 'storeListing'])->name('post.admin.create');
