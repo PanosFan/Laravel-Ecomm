@@ -20,11 +20,15 @@ Route::middleware([isAuth::class])->group(function () {
 // is Guest so can't access main page sites, gets redirected on login page
 Route::middleware([isGuest::class])->group(function () {
     Route::get('/', [PageController::class, 'home'])->name('get.home');
-    Route::view('/contact', 'contact')->name('get.contact');
-    Route::post('/contact', [ContactController::class, 'storeComments'])->name('post.contact');
-    Route::get('/books', [PageController::class, 'books'])->name('get.books');
     Route::get('/logout', [UserController::class, 'logout'])->name('logout');
-    Route::get('/books/{id}/details', [PageController::class, 'details'])->name('get.book.details');
+    Route::prefix('/contact')->group(function () {
+        Route::view('/', 'contact')->name('get.contact');
+        Route::post('/', [ContactController::class, 'storeComments'])->name('post.contact');
+    });
+    Route::prefix('/books')->group(function () {
+        Route::get('/', [PageController::class, 'books'])->name('get.books');
+        Route::get('/{id}/details', [PageController::class, 'details'])->name('get.book.details');
+    });
 });
 
 
@@ -33,13 +37,18 @@ Route::post('/login', [UserController::class, 'signin'])->name('post.login');
 Route::post('/register', [UserController::class, 'signup'])->name('post.register');
 
 
-Route::middleware([isAdmin::class])->group(function () {
-    Route::get('/admin', [AdminController::class, 'admin'])->name('get.admin');
-    Route::view('/admin/create', 'admin.create')->name('get.admin.create');
-    Route::get('/admin/comments', [AdminController::class, 'comments'])->name('get.admin.comments');
-    Route::get('/admin/comments/{id}/delete', [AdminController::class, 'deleteComment'])->name('delete.admin.comment');
-    Route::post('/admin/create', [AdminController::class, 'storeListing'])->name('post.admin.create');
-    Route::get('/admin/{id}/delete', [AdminController::class, 'deleteListing'])->name('delete.listing');
-    Route::get('/admin/{id}/edit', [AdminController::class, 'editListing'])->name('edit.listing');
-    Route::put('/admin/{id}/update', [AdminController::class, 'updateListing'])->name('update.listing');
+// Route::middleware([isAdmin::class])->group(function () {
+//     Route::prefix('/admin')->group(function () {
+//     });
+// });
+
+Route::group(['prefix' => 'admin', 'middleware' => isAdmin::class], function () {
+    Route::get('/', [AdminController::class, 'admin'])->name('get.admin');
+    Route::view('/create', 'admin.create')->name('get.admin.create');
+    Route::get('/comments', [AdminController::class, 'comments'])->name('get.admin.comments');
+    Route::get('/comments/{id}/delete', [AdminController::class, 'deleteComment'])->name('delete.admin.comment');
+    Route::post('/create', [AdminController::class, 'storeListing'])->name('post.admin.create');
+    Route::get('/{id}/delete', [AdminController::class, 'deleteListing'])->name('delete.listing');
+    Route::get('/{id}/edit', [AdminController::class, 'editListing'])->name('edit.listing');
+    Route::put('/{id}/update', [AdminController::class, 'updateListing'])->name('update.listing');
 });
