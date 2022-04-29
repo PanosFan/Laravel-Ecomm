@@ -9,7 +9,6 @@
 @section('content')
     <div class="container">
         <div class="container">
-            <h3>Books</h3>
             <div class="row mt-4">
                 @forelse ($data as $item)
                     <div class="col-6 text-center p-4">
