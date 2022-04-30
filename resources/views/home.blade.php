@@ -58,7 +58,7 @@
                         <div>Title: {{ $item->title }}</div>
                         <div>Author: {{ $item->author }}</div>
                         <div>Price: {{ $item->price }}&euro;</div>
-                        <a href="#" class="btn btn-primary">Add to cart</a>
+                        <a href="{{ route('addCart', $item->id) }}" class="btn btn-primary">Add to cart</a>
                         <a href="{{ route('get.book.details', $item->id) }}" class="btn btn-info">Details</a>
                     </div>
                 @endif

@@ -26,7 +26,7 @@
                             href="{{ route('get.contact') }}">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-info" href="">Cart(0)</a>
+                        <a class="nav-link text-info" href="{{ route('get.Cart') }}">Cart</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-danger" href="{{ route('logout') }}">Logout</a>
